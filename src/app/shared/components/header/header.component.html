@@ -8,7 +8,7 @@
       </span>
     </a>
 
-    <nav class="nav" [class.open]="isMobileMenuOpen">
+    <nav id="primary-navigation" class="nav" [class.open]="isMobileMenuOpen" aria-label="Primary navigation">
       <a routerLink="/" routerLinkActive="active" (click)="closeMobileMenu()">Home</a>
       <a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">About</a>
       <a routerLink="/solutions" routerLinkActive="active" (click)="closeMobileMenu()">Solutions</a>
@@ -18,7 +18,14 @@
       <a class="cta" routerLink="/contact" (click)="closeMobileMenu()">Get in touch</a>
     </nav>
 
-    <button class="mobile-toggle" type="button" (click)="toggleMobileMenu()" aria-label="Toggle navigation">
+    <button
+      class="mobile-toggle"
+      type="button"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle navigation"
+      aria-controls="primary-navigation"
+      [attr.aria-expanded]="isMobileMenuOpen"
+    >
       <span class="bar"></span>
       <span class="bar"></span>
       <span class="bar"></span>

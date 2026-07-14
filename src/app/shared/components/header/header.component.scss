@@ -94,6 +94,8 @@
   gap: 0.35rem;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  z-index: 2;
 }
 
 .mobile-toggle .bar {
@@ -106,28 +108,39 @@
 
 @media (max-width: 960px) {
   .nav {
-    position: fixed;
-    inset: 0;
-    top: 70px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     padding: 1.5rem;
     background: rgba(11, 18, 34, 0.94);
     backdrop-filter: blur(18px);
-    transform: translateY(-120%);
+    max-height: calc(100dvh - 70px);
+    overflow-y: auto;
+    transform: translateY(-1rem);
     opacity: 0;
-    transition: transform 240ms ease, opacity 240ms ease;
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 240ms ease, opacity 240ms ease, visibility 240ms ease;
   }
 
   .nav.open {
     transform: translateY(0);
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .nav a {
     padding: 0.95rem 1rem;
     border-radius: 0.75rem;
+  }
+
+  .nav .cta {
+    margin-left: 0;
   }
 
   .mobile-toggle {
