@@ -1,0 +1,174 @@
+<section class="section about-page">
+  <div class="container">
+    <div class="about-hero">
+      <div class="about-hero__copy">
+        <span class="badge badge--tech">About GIM Nextgen</span>
+        <h1>Precision-led monitoring for infrastructure that cannot afford guesswork.</h1>
+        <p class="about-hero__lead">
+          GIM Nextgen is a specialist team delivering reliable instrumentation and monitoring solutions for critical infrastructure.
+        </p>
+        <p class="about-hero__text">
+          We combine field-ready hardware, remote connectivity, and practical engineering support so civil, tunnelling, rail, dam,
+          and construction teams can act on dependable data with confidence.
+        </p>
+
+        <div class="about-hero__actions">
+          <a class="button button--primary" routerLink="/contact">Talk to our team</a>
+          <a class="button button--secondary" routerLink="/downloads">Download brochure</a>
+        </div>
+
+        <div class="about-hero__stats">
+          <article class="about-stat" *ngFor="let stat of stats">
+            <p class="about-stat__value">{{ stat.value }}</p>
+            <p class="about-stat__label">{{ stat.label }}</p>
+            <p class="about-stat__detail">{{ stat.detail }}</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="about-hero__visual" aria-label="About GIM Nextgen overview">
+        <div class="about-board">
+          <div class="about-board__header">
+            <span class="about-board__eyebrow">Operational snapshot</span>
+            <h2>See how instrumentation, connectivity, and support come together on live projects.</h2>
+            <p>
+              GIM Nextgen supports measurement programs from instrumentation planning through remote visibility, reporting, and
+              long-term project support.
+            </p>
+          </div>
+
+          <div class="about-board__chips" aria-hidden="true">
+            <span class="about-board__chip">Instrumentation</span>
+            <span class="about-board__chip">Connectivity</span>
+            <span class="about-board__chip">Support</span>
+          </div>
+
+          <div class="about-board__feature">
+            <span class="about-board__label">What we bring</span>
+            <p>
+              A coordinated workflow for tunnels, rail, dams, and construction programs where hardware, data flow, and response
+              planning need to work as one system.
+            </p>
+          </div>
+
+          <div class="about-board__signals">
+            <article class="about-board__signal" *ngFor="let signal of heroSignals">
+              <p class="about-board__signal-label">{{ signal.label }}</p>
+              <h3>{{ signal.title }}</h3>
+              <p>{{ signal.text }}</p>
+            </article>
+          </div>
+
+          <div class="about-board__presence">
+            <span class="about-board__label">Regional presence</span>
+            <div class="about-board__presence-list">
+              <span *ngFor="let office of offices">{{ office.city }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid--2 about-story">
+      <article class="card about-panel about-panel--story">
+        <span class="about-kicker">Mission and vision</span>
+        <h2>Built to turn measurements into confident engineering decisions.</h2>
+
+        <div class="about-panel__stack">
+          <div class="about-point">
+            <h3>Our mission</h3>
+            <p>
+              To equip engineering teams with accurate, real-time data that reduces risk and accelerates decision-making in complex
+              civil and mining projects.
+            </p>
+          </div>
+
+          <div class="about-point">
+            <h3>Our vision</h3>
+            <p>
+              To be the trusted partner for next-generation structural and geotechnical monitoring by combining safety, sustainability,
+              and innovation in every deployment.
+            </p>
+          </div>
+
+          <div class="about-point about-point--accent">
+            <h3>What that means in practice</h3>
+            <p>
+              We do not stop at supplying instruments. We help shape the full monitoring workflow, from specification and installation
+              through alerts, analytics, and long-term support.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card about-panel about-panel--values">
+        <span class="about-kicker">Core values</span>
+        <h2>The standards we bring to every deployment.</h2>
+
+        <div class="value-grid">
+          <div class="value-card" *ngFor="let value of valuePillars">
+            <h3>{{ value.title }}</h3>
+            <p>{{ value.text }}</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <section class="about-section">
+      <header class="section__header about-section__header">
+        <h2>How we deliver</h2>
+        <p class="section__sub">
+          A monitoring system is only useful when hardware, data flow, alerts, and project support all work together.
+        </p>
+      </header>
+
+      <div class="process-grid">
+        <article class="process-card" *ngFor="let step of deliverySteps">
+          <span class="process-card__number">{{ step.id }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="grid grid--2 about-bottom">
+      <article class="card about-panel about-panel--strengths">
+        <span class="about-kicker">Why teams choose us</span>
+        <h2>Practical capability backed by service.</h2>
+
+        <div class="strength-list">
+          <div class="strength-item" *ngFor="let strength of strengths">
+            <h3>{{ strength.title }}</h3>
+            <p>{{ strength.text }}</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card about-panel about-panel--offices">
+        <span class="about-kicker">Regional footprint</span>
+        <h2>Close to projects, not just products.</h2>
+
+        <div class="office-list">
+          <div class="office-card" *ngFor="let office of offices">
+            <p class="office-card__label">{{ office.label }}</p>
+            <h3>{{ office.city }}</h3>
+            <p>{{ office.text }}</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="about-cta">
+      <div>
+        <span class="about-kicker">Start a conversation</span>
+        <h2>Need a monitoring partner for an upcoming project?</h2>
+        <p>
+          We can help define instrumentation, connectivity, reporting, and support workflows around your site conditions and delivery
+          milestones.
+        </p>
+      </div>
+
+      <a class="button button--primary" routerLink="/contact">Request consultation</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,48 @@
+<section class="section">
+  <div class="container">
+    <header class="section__header">
+      <h1>Contact us</h1>
+      <p class="section__sub">Reach out to discuss a project, request technical documentation, or arrange a site visit.</p>
+    </header>
+
+    <div class="section__image">
+      <img class="page-banner" [src]="heroImage" alt="Contact GIM Nextgen" />
+    </div>
+
+    <div class="grid grid--2">
+      <div class="contact-card">
+        <h2>Get in touch</h2>
+        <p class="contact-card__text">Our team is ready to review your requirements and propose monitoring solutions that fit your project conditions.</p>
+        <ul class="contact-info">
+          <li><strong>Email:</strong> <a href="mailto:info@gim-nextgen.com">info@gim-nextgen.com</a></li>
+          <li><strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a></li>
+          <li><strong>Head office:</strong> Mumbai, India</li>
+        </ul>
+      </div>
+
+      <div class="contact-form">
+        <form (submit)="$event.preventDefault()">
+          <div class="form-row">
+            <label>
+              Name
+              <input type="text" placeholder="Your name" required />
+            </label>
+            <label>
+              Company
+              <input type="text" placeholder="Company" />
+            </label>
+          </div>
+          <label>
+            Email
+            <input type="email" placeholder="name@company.com" required />
+          </label>
+          <label>
+            Project details
+            <textarea rows="5" placeholder="Tell us about your project"></textarea>
+          </label>
+          <button class="button button--primary" type="submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

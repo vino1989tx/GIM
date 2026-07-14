@@ -1,0 +1,81 @@
+<section class="section portfolio-page">
+  <div class="container">
+    <div class="portfolio-hero">
+      <div class="portfolio-hero__copy">
+        <span class="badge badge--tech">Product portfolio</span>
+        <h1>Instrumentation families built for connected monitoring programs.</h1>
+        <p class="portfolio-hero__lead">
+          Browse our product categories for geotechnical, structural, environmental, and remote monitoring deployments.
+        </p>
+        <p class="portfolio-hero__text">
+          This page now presents the portfolio as a true category overview, not a single-product datasheet. Explore families based on
+          monitoring objective, movement type, and system integration needs.
+        </p>
+
+        <div class="portfolio-hero__actions">
+          <a class="button button--primary" routerLink="/contact">Talk to our team</a>
+          <a class="button button--secondary" routerLink="/downloads">Download brochure</a>
+        </div>
+
+        <div class="portfolio-hero__stats">
+          <article class="portfolio-stat" *ngFor="let stat of portfolioStats">
+            <p class="portfolio-stat__value">{{ stat.value }}</p>
+            <p class="portfolio-stat__label">{{ stat.label }}</p>
+            <p class="portfolio-stat__detail">{{ stat.detail }}</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="portfolio-board" aria-label="Product category overview">
+        <div class="portfolio-board__header">
+          <span class="portfolio-board__eyebrow">Coverage across the stack</span>
+          <h2>Browse by monitoring need instead of a single product sheet.</h2>
+          <p>
+            Each category groups the instruments, gateways, and supporting components used to build a complete monitoring workflow.
+          </p>
+        </div>
+
+        <div class="portfolio-board__list">
+          <article class="portfolio-board__item" *ngFor="let category of heroCategories">
+            <div class="portfolio-board__media">
+              <img
+                [src]="category.image"
+                [alt]="category.title"
+                [style.object-position]="category.imagePosition || 'center'"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h3>{{ category.title }}</h3>
+              <p>{{ category.description }}</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="portfolio-board__footer">
+          <span class="portfolio-board__tag" *ngFor="let category of categories">{{ category.title }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid--3 portfolio-grid">
+      <ng-container *ngFor="let category of categories">
+        <a class="card category-card" [routerLink]="['/products', category.id]">
+          <div class="category-card__media">
+            <img
+              class="category-card__image"
+              [src]="category.image"
+              [alt]="category.title"
+              [style.object-position]="category.imagePosition || 'center'"
+              loading="lazy"
+            />
+          </div>
+          <p class="category-card__subtitle">{{ category.subtitle }}</p>
+          <h3 class="card__title">{{ category.title }}</h3>
+          <p class="card__body">{{ category.description }}</p>
+          <span class="badge">Explore category</span>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</section>

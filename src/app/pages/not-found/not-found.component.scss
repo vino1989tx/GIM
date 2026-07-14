@@ -1,0 +1,20 @@
+.notfound {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.notfound h1 {
+  margin-bottom: 1.25rem;
+}
+
+.notfound p {
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}

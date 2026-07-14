@@ -1,0 +1,65 @@
+<section class="section">
+  <div class="container">
+    <div class="grid grid--3">
+      <aside class="category-nav">
+        <h2>Product categories</h2>
+        <nav>
+          <ul>
+            <li *ngFor="let cat of allCategories">
+              <a
+                [routerLink]="['/products', cat.id]"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                >{{ cat.title }}</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="category-main">
+        <div class="section__image">
+          <div class="category-banner-shell">
+            <img class="page-banner category-banner" [src]="categoryBanner" [style.object-position]="categoryBannerPosition" alt="{{ category?.title }}" />
+          </div>
+        </div>
+        <header class="section__header">
+          <h1>{{ category?.title || 'Products' }}</h1>
+          <p class="section__sub">{{ category?.description || 'Explore our range of monitoring instruments.' }}</p>
+        </header>
+
+        <div class="grid grid--2">
+          <ng-container *ngFor="let product of products">
+            <a class="card product-card" [routerLink]="['/product', product.id]">
+              <div class="product-card__media">
+                <img
+                  class="card-image"
+                  [src]="product.images?.[0] || '/assets/GIM_Nextgen_2026/company-overview.jpg'"
+                  [style.object-position]="'center'"
+                  [alt]="product.name"
+                />
+              </div>
+              <h3 class="card__title">{{ product.name }}</h3>
+              <p class="card__body">{{ product.shortDescription }}</p>
+              <ul class="product-card__tags">
+                <li *ngFor="let feature of product.featureBullets | slice:0:2">{{ feature }}</li>
+              </ul>
+              <span class="button button--secondary">View details</span>
+            </a>
+          </ng-container>
+          <ng-container *ngIf="products.length === 0">
+            <p class="info">No products found in this category yet.</p>
+          </ng-container>
+        </div>
+      </main>
+
+      <aside class="category-cta">
+        <div class="card">
+          <h3 class="card__title">Need help selecting a solution?</h3>
+          <p class="card__body">Our team can recommend the best instruments for your project scope and site conditions.</p>
+          <a class="button button--primary" routerLink="/contact">Request consultation</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

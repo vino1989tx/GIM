@@ -1,0 +1,24 @@
+<section class="section">
+  <div class="container">
+    <header class="section__header">
+      <h1>Brochures &amp; downloads</h1>
+      <p class="section__sub">Download the latest product, platform, and project brochures prepared from the current site content.</p>
+    </header>
+
+    <div class="section__image">
+      <img class="page-banner" [src]="heroImage" alt="Downloads and documentation" />
+    </div>
+
+    <div class="grid grid--3">
+      <ng-container *ngFor="let doc of brochures">
+        <div class="card download-card">
+          <img class="card-image" [src]="doc.image" [alt]="doc.title" />
+          <h3 class="card__title">{{ doc.title }}</h3>
+          <p class="card__body">{{ doc.description }}</p>
+          <p class="download-card__meta">{{ doc.edition }}</p>
+          <button class="button button--secondary" (click)="downloadPDF(doc.file)" type="button">Download PDF</button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>

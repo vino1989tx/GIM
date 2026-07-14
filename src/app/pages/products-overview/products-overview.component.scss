@@ -1,0 +1,292 @@
+.portfolio-page {
+  overflow: hidden;
+}
+
+.portfolio-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at top left, rgba(62, 220, 170, 0.14), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(255, 155, 46, 0.16), transparent 28%),
+    linear-gradient(145deg, rgba(17, 28, 51, 0.94), rgba(12, 26, 45, 0.98));
+  box-shadow: var(--shadow-soft);
+}
+
+.portfolio-hero__copy h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.35rem, 4vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  max-width: 11ch;
+}
+
+.portfolio-hero__lead {
+  margin: 0 0 1rem;
+  max-width: 58ch;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.12rem;
+  line-height: 1.65;
+}
+
+.portfolio-hero__text {
+  margin: 0;
+  max-width: 60ch;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.7;
+}
+
+.portfolio-hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.portfolio-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.portfolio-stat {
+  padding: 1.1rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+}
+
+.portfolio-stat__value {
+  margin: 0 0 0.35rem;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.portfolio-stat__label {
+  margin: 0 0 0.45rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-accent-2);
+}
+
+.portfolio-stat__detail {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.portfolio-board {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(circle at top right, rgba(255, 155, 46, 0.15), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(62, 220, 170, 0.13), transparent 30%),
+    linear-gradient(160deg, rgba(20, 33, 57, 0.98), rgba(10, 18, 31, 0.98));
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.portfolio-board::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.portfolio-board__header,
+.portfolio-board__list,
+.portfolio-board__footer {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-board__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.portfolio-board__header h2 {
+  margin: 0 0 0.7rem;
+  font-size: 1.8rem;
+  line-height: 1.12;
+  max-width: 14ch;
+}
+
+.portfolio-board__header p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.65;
+}
+
+.portfolio-board__list {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 1.35rem;
+}
+
+.portfolio-board__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-board__media {
+  width: 5.25rem;
+  height: 5.25rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  flex: 0 0 auto;
+}
+
+.portfolio-board__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.portfolio-board__item h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+}
+
+.portfolio-board__item p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.6;
+}
+
+.portfolio-board__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.2rem;
+}
+
+.portfolio-board__tag {
+  display: inline-flex;
+  padding: 0.5rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.78rem;
+}
+
+.portfolio-grid {
+  margin-top: 2rem;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 2rem 1.75rem;
+  min-height: 290px;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.category-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(62, 220, 170, 0.24);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.category-card__media {
+  width: calc(100% + 3.5rem);
+  margin: -2rem -1.75rem 0.45rem;
+  height: 170px;
+  overflow: hidden;
+  border-radius: 0.95rem 0.95rem 0 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+}
+
+.category-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.category-card__subtitle {
+  margin: 0;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-2);
+}
+
+.category-card .card__title {
+  margin-bottom: 0.2rem;
+}
+
+.category-card .badge {
+  align-self: flex-start;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 1000px) {
+  .portfolio-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-hero__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-hero,
+  .portfolio-board,
+  .category-card {
+    padding: 1.4rem;
+  }
+
+  .portfolio-hero__copy h1 {
+    max-width: none;
+    font-size: 2.25rem;
+  }
+
+  .portfolio-board__item {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-board__media {
+    width: 100%;
+    height: 180px;
+  }
+
+  .category-card__media {
+    width: calc(100% + 2.8rem);
+    margin: -1.4rem -1.4rem 0.45rem;
+  }
+}

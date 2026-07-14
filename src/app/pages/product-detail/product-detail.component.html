@@ -1,0 +1,143 @@
+<section class="section">
+  <div class="container">
+    <div class="breadcrumbs">
+      <a routerLink="/products">Products</a>
+      <span class="breadcrumb-sep">/</span>
+      <a *ngIf="category" [routerLink]="['/products', category.id]">{{ category.title }}</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">{{ product?.name }}</span>
+    </div>
+
+    <div class="grid grid--2">
+      <div class="product-hero">
+        <h1>{{ product?.name }}</h1>
+        <p class="hero__subtitle">{{ product?.shortDescription }}</p>
+        <div class="product-hero__meta">
+          <span class="badge badge--tech">{{ product?.category | titlecase }}</span>
+          <span class="badge">Product ID: {{ product?.id }}</span>
+        </div>
+
+        <div class="product-hero__actions">
+          <a class="button button--primary" routerLink="/contact">Request info</a>
+          <a
+            *ngIf="productBrochureFile; else generalBrochure"
+            class="button button--secondary"
+            [href]="productBrochureFile"
+            [attr.download]="productBrochureName"
+          >
+            Download brochure
+          </a>
+          <ng-template #generalBrochure>
+            <a class="button button--secondary" routerLink="/downloads">Download brochure</a>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="product-visual">
+        <div class="product-shot" *ngIf="productImage">
+          <img class="product-shot__image" [src]="productImage" [alt]="product?.name" />
+        </div>
+      </div>
+    </div>
+
+    <section class="section section--dense" *ngIf="displayRichContent as rich">
+      <div class="product-story">
+        <article class="card product-story__overview">
+          <span class="product-story__eyebrow">{{ rich.label || 'Product overview' }}</span>
+          <h2 *ngIf="rich.headline">{{ rich.headline }}</h2>
+          <p class="product-story__intro">{{ rich.overview }}</p>
+
+          <ul class="product-story__highlights" *ngIf="rich.highlights?.length">
+            <li *ngFor="let item of rich.highlights">{{ item }}</li>
+          </ul>
+        </article>
+
+        <article class="card product-story__interfaces" *ngIf="rich.interfaceBullets?.length">
+          <h3>{{ rich.interfaceHeading || 'Supported interfaces' }}</h3>
+          <ul class="feature-list">
+            <li *ngFor="let item of rich.interfaceBullets">{{ item }}</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="grid grid--3 product-story__sections" *ngIf="rich.sections?.length">
+        <article class="card" *ngFor="let section of rich.sections">
+          <h3 class="card__title">{{ section.title }}</h3>
+          <p class="card__body">{{ section.description }}</p>
+        </article>
+      </div>
+
+      <article class="card product-story__measurements" *ngIf="rich.measurements?.length">
+        <h3 class="card__title">{{ rich.measurementHeading || 'Measurements' }}</h3>
+        <ul class="feature-list">
+          <li *ngFor="let item of rich.measurements">{{ item }}</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="grid grid--3 section--dense">
+      <div class="card">
+        <h3 class="card__title">Key features</h3>
+        <ul class="feature-list">
+          <li *ngFor="let feature of product?.keyFeatures">
+            <strong>{{ feature.title }}:</strong> {{ feature.description }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 class="card__title">Applications</h3>
+        <ul class="feature-list">
+          <li *ngFor="let item of product?.applications">{{ item }}</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 class="card__title">Technical specifications</h3>
+        <table class="spec-table">
+          <tbody>
+            <tr *ngFor="let spec of product?.specifications">
+              <td>{{ spec.label }}</td>
+              <td>{{ spec.value }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid grid--2">
+          <div class="inquiry">
+            <h2>Request a quote</h2>
+            <p>Provide a few details and our technical team will get back to you with a recommended solution.</p>
+            <form class="form" (submit)="$event.preventDefault()">
+              <label>
+                Name
+                <input type="text" placeholder="Your name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" placeholder="name@company.com" required />
+              </label>
+              <label>
+                Project brief
+                <textarea rows="4" placeholder="Quick summary of your requirements"></textarea>
+              </label>
+              <button class="button button--primary" type="submit">Submit inquiry</button>
+            </form>
+          </div>
+
+          <div class="related">
+            <h2>You may also like</h2>
+            <ul class="related-list">
+              <li *ngFor="let related of product?.relatedProducts">
+                <a class="related-item" [routerLink]="['/product', related]">{{ related }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

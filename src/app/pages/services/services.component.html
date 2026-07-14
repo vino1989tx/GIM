@@ -1,0 +1,111 @@
+<section class="section services-page">
+  <div class="container">
+    <div class="services-hero">
+      <div class="services-hero__copy">
+        <span class="badge badge--tech">Technical services</span>
+        <h1>Field services built to turn measurements into dependable project action.</h1>
+        <p class="services-hero__lead">
+          GIM Nextgen supports instrumentation programs with practical geotechnical services, condition surveys, system
+          commissioning, and long-term monitoring workflows.
+        </p>
+        <p class="services-hero__text">
+          The service scope is designed around real site constraints so investigations, deployment, reporting, and remote
+          visibility work as one coordinated delivery path.
+        </p>
+
+        <div class="services-hero__actions">
+          <a class="button button--primary" routerLink="/contact">Plan a service scope</a>
+          <a class="button button--secondary" routerLink="/downloads">Download company brochure</a>
+        </div>
+
+        <div class="services-hero__stats">
+          <article class="service-stat" *ngFor="let stat of stats">
+            <p class="service-stat__value">{{ stat.value }}</p>
+            <p class="service-stat__label">{{ stat.label }}</p>
+            <p class="service-stat__detail">{{ stat.detail }}</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="services-hero__visual" aria-label="Service delivery overview">
+        <div class="services-board">
+          <div class="services-board__header">
+            <span class="services-board__eyebrow">Service stack</span>
+            <h2>From investigation and documentation to live monitoring and handover.</h2>
+            <p>
+              Each engagement can combine field studies, instrumentation planning, condition review, and remote support based on
+              the project stage and risk profile.
+            </p>
+          </div>
+
+          <div class="services-board__list">
+            <article class="services-board__item" *ngFor="let item of serviceStack">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.text }}</p>
+            </article>
+          </div>
+
+          <div class="services-board__sectors">
+            <span *ngFor="let sector of sectors">{{ sector }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid--2 services-panels">
+      <article class="card services-panel">
+        <span class="services-kicker">Geotechnical support</span>
+        <h2>Survey, test, and reporting work that shapes the monitoring scope.</h2>
+
+        <div class="services-list">
+          <div class="services-list__item" *ngFor="let item of investigationServices">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card services-panel">
+        <span class="services-kicker">Condition review</span>
+        <h2>Evidence-led documentation for nearby structures and critical assets.</h2>
+
+        <div class="services-list">
+          <div class="services-list__item" *ngFor="let item of conditionServices">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <section class="services-section">
+      <header class="section__header services-section__header">
+        <h2>How service engagements run</h2>
+        <p class="section__sub">
+          We keep the workflow practical so field tasks, instrumentation, dashboards, and final reporting stay aligned.
+        </p>
+      </header>
+
+      <div class="process-grid">
+        <article class="process-card" *ngFor="let step of deliverySteps">
+          <span class="process-card__number">{{ step.id }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.text }}</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="services-cta">
+      <div>
+        <span class="services-kicker">Project fit</span>
+        <h2>Need a service package around a live construction or infrastructure programme?</h2>
+        <p>
+          We can combine field studies, condition surveys, monitoring deployment, reporting, and remote support around your
+          milestones and risk controls.
+        </p>
+      </div>
+
+      <a class="button button--primary" routerLink="/contact">Request consultation</a>
+    </div>
+  </div>
+</section>

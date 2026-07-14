@@ -1,0 +1,183 @@
+<section class="hero" aria-label="Hero">
+  <div class="hero-carousel hero-carousel--banner" (mouseenter)="pauseAutoplay()" (mouseleave)="resumeAutoplay()">
+    <div class="hero-carousel__viewport">
+      <img class="hero-carousel__image" [src]="activeSlide.image" [alt]="activeSlide.alt" />
+      <div class="hero-carousel__overlay"></div>
+    </div>
+
+    <div class="hero-carousel__controls hero-carousel__controls--floating" *ngIf="carouselSlides.length > 1">
+      <button class="hero-carousel__button" type="button" (click)="previousSlide()" aria-label="Previous slide">
+        Prev
+      </button>
+
+      <div class="hero-carousel__dots">
+        <button
+          *ngFor="let slide of carouselSlides; let i = index"
+          class="hero-carousel__dot"
+          type="button"
+          [class.is-active]="i === activeSlideIndex"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+          [attr.aria-pressed]="i === activeSlideIndex"
+          (click)="selectSlide(i)"
+        ></button>
+      </div>
+
+      <button class="hero-carousel__button" type="button" (click)="nextSlide()" aria-label="Next slide">
+        Next
+      </button>
+    </div>
+  </div>
+
+  <div class="container hero__content-wrap">
+    <div class="hero__content">
+      <p class="badge badge--tech">Industrial monitoring &amp; instrumentation</p>
+      <h1 class="hero__title">{{ heroTitle }}</h1>
+      <p class="hero__subtitle">{{ heroTagline }}</p>
+      <p class="hero__text">{{ heroSubtitle }}</p>
+
+      <div class="hero__actions">
+        <a class="button button--primary" routerLink="/solutions">Explore solutions</a>
+        <a class="button button--secondary" routerLink="/contact">Request a brochure</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dense">
+  <div class="container">
+    <header class="section__header">
+      <h2>Core capabilities</h2>
+      <p class="section__sub">From sensor design to analytics dashboards, GIM Nextgen connects field data to actionable insights.</p>
+    </header>
+
+    <div class="grid grid--3">
+      <div class="card">
+        <h3 class="card__title">Real-time monitoring</h3>
+        <p class="card__body">Always-on connectivity for early warning and performance tracking on critical assets.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Custom instrumentation</h3>
+        <p class="card__body">Tailored sensors and housings for harsh environments, with high reliability and long life.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Engineering survey support</h3>
+        <p class="card__body">Precise survey packages and field campaigns to validate structural health and ground movement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <header class="section__header">
+      <h2>Product categories</h2>
+      <p class="section__sub">Browse our instrument families for geotechnical, structural, and environmental monitoring.</p>
+    </header>
+
+    <div class="grid grid--4">
+      <ng-container *ngFor="let category of categories">
+        <a class="card card--flat category-card" [routerLink]="['/products', category.id]">
+          <div class="category-card__media">
+            <img
+              class="category-card__image"
+              [src]="category.image"
+              [alt]="category.title"
+              [style.object-position]="category.imagePosition || 'center'"
+              loading="lazy"
+            />
+          </div>
+          <h3 class="card__title">{{ category.title }}</h3>
+          <p class="card__body">{{ category.description }}</p>
+          <span class="badge">Explore</span>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <header class="section__header">
+      <h2>Real-time monitoring ecosystem</h2>
+      <p class="section__sub">A reliable stack of field devices, gateways, and cloud tools to visualize and act on data.</p>
+    </header>
+
+    <div class="grid grid--3">
+      <div class="card">
+        <h3 class="card__title">Sensors &amp; devices</h3>
+        <p class="card__body">Field-grade sensors with embedded data processing and edge alerts.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Gateways &amp; comms</h3>
+        <p class="card__body">Secure, redundant connectivity using cellular, LoRa, or private networks.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Cloud dashboard</h3>
+        <p class="card__body">Web and mobile access to alerts, trend analysis, and reports.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <header class="section__header">
+      <h2>Featured products</h2>
+      <p class="section__sub">Selected instrument solutions that deliver precision, durability, and simplicity.</p>
+    </header>
+
+    <div class="grid grid--3">
+      <ng-container *ngFor="let product of featuredProducts">
+        <a class="card product-card" [routerLink]="['/product', product.id]">
+          <div class="product-card__meta">
+            <span class="badge badge--tech">{{ product.category | titlecase }}</span>
+            <h3 class="card__title">{{ product.name }}</h3>
+          </div>
+          <p class="card__body">{{ product.shortDescription }}</p>
+          <ul class="product-card__list">
+            <li *ngFor="let bullet of product.featureBullets">{{ bullet }}</li>
+          </ul>
+          <span class="button button--secondary">View details</span>
+        </a>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dense section--alt">
+  <div class="container">
+    <header class="section__header">
+      <h2>Industries we serve</h2>
+      <p class="section__sub">Trusted by project teams that demand dependable instrumentation and rapid response.</p>
+    </header>
+
+    <div class="grid grid--4">
+      <div class="card">
+        <h3 class="card__title">Rail &amp; metro</h3>
+        <p class="card__body">Stability monitoring for tunnels, track alignments, and station structures.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Tunnels</h3>
+        <p class="card__body">Live convergence and deformation monitoring during excavation and lining works.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Dams</h3>
+        <p class="card__body">Continuous dam safety and seepage monitoring with alarm automation.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Construction</h3>
+        <p class="card__body">Site-wide movement tracking and vibration monitoring for risk management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section callout">
+  <div class="container callout__inner">
+    <div>
+      <h2>Ready to deploy smarter monitoring?</h2>
+      <p>Connect with our engineering team to review your project requirements and request a tailored briefing.</p>
+    </div>
+    <a class="button button--primary" routerLink="/contact">Contact our team</a>
+  </div>
+</section>

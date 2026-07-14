@@ -1,0 +1,27 @@
+<header class="site-header" [class.scrolled]="isScrolled">
+  <div class="header__inner container">
+    <a class="logo" routerLink="/" (click)="closeMobileMenu()">
+      <span class="logo__mark" aria-hidden="true">G</span>
+      <span class="logo__text">
+        <span class="logo__brand">GIM</span>
+        <span class="logo__tagline">Nextgen</span>
+      </span>
+    </a>
+
+    <nav class="nav" [class.open]="isMobileMenuOpen">
+      <a routerLink="/" routerLinkActive="active" (click)="closeMobileMenu()">Home</a>
+      <a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">About</a>
+      <a routerLink="/solutions" routerLinkActive="active" (click)="closeMobileMenu()">Solutions</a>
+      <a routerLink="/products" routerLinkActive="active" (click)="closeMobileMenu()">Products</a>
+      <a routerLink="/services" routerLinkActive="active" (click)="closeMobileMenu()">Services</a>
+      <a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contact</a>
+      <a class="cta" routerLink="/contact" (click)="closeMobileMenu()">Get in touch</a>
+    </nav>
+
+    <button class="mobile-toggle" type="button" (click)="toggleMobileMenu()" aria-label="Toggle navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</header>
